@@ -4,10 +4,8 @@ More details on model and preprocessing present in folder 'NLP-Classification'
 To run:
 1. Create an python virtual env using class material or https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/
 2. Install all required pakages using pip install -r requirements.txt
-3. I used the provided FastText "desc_FT" for this assignment rather than the model I built in milestone one because I did not construct the FastText model (I did something else). It was also simpler to operate with FastText.
-Download the models from https://drive.google.com/file/d/1lmPcWNW2IBIF5tXMmCChau299NozcOyk/view or https://rmiteduau-my.sharepoint.com/:u:/g/personal/s3971501_student_rmit_edu_au/EWIKsQcOLMxAodIjKb-XxKQBFGRtjtGHQF_JaDBCHZWVZA?e=LnBv8e
-4. To run the app, follow Module 10.4 or use command flask --app app.py --debug run. This code runs in developemnt server with debug mode
-5. To quit app do ctrl+c or cmd+c in terminal
+3. To run the app, follow Module 10.4 or use command flask --app app.py --debug run. This code runs in developemnt server with debug mode
+4. To quit app do ctrl+c or cmd+c in terminal
 
 
 Functionalities:
