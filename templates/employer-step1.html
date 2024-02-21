@@ -1,0 +1,98 @@
+{% extends "base.html" %} {% block navtitle %} <span>JobHub Employer</span>{%
+endblock %} {% block navlink %}
+<a class="nav-link disabled" href="/logout">Logout</a>{% endblock %}
+<h1>Create New Job Listing</h1>
+<!-- {% block search %} {% endblock %} -->
+
+{% block body %}
+
+<div class="container create-job-wrapper">
+  {% block form %}<form class="create-job" action="/create_job" method="POST"> {% endblock %}
+    <h3>Create New Job Listing <span class="badge badge-light" style="font-size: 12px;">  {% block formPageNo %}1/2{% endblock %}</span>
+    </h3> 
+    <div class="form-group">
+      <label for="title">Job Title:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        placeholder="Enter job title"
+        required
+        value="{{ title }}"  
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Job Description:</label>
+      <textarea
+        class="form-control"
+        id="description"
+        name="description"
+        placeholder="Enter job description"
+        required
+      >{{ description }}</textarea> 
+    </div>
+    <div class="form-group">
+      <label for="company">Company:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="company"
+        name="company"
+        placeholder="Enter company name"
+        value="{{ company }}"  
+      />
+    </div>
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="location"
+        placeholder="Enter job location"
+        value="{{ location }}"  
+      />
+    </div>
+    <div class="form-group">
+      <label for="salary">Salary:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="salary"
+        name="salary"
+        placeholder="Enter salary"
+        value="{{ salary }}" 
+      />
+    </div>
+    <div class="form-group">
+      <label for="job_type">Job Type:</label>
+      <select class="form-control" id="job_type" name="job_type">
+        <option value="Full-Time" {% if job_type == 'Full-Time' %}selected{% endif %}>Full-Time</option>
+        <option value="Part-Time" {% if job_type == 'Part-Time' %}selected{% endif %}>Part-Time</option>
+        <option value="Contract" {% if job_type == 'Contract' %}selected{% endif %}>Contract</option>
+        <option value="Freelance" {% if job_type == 'Freelance' %}selected{% endif %}>Freelance</option>
+        <option value="Internship" {% if job_type == 'Internship' %}selected{% endif %}>Internship</option>
+      </select>
+    </div>
+
+    {% block category %}
+    {% endblock %}
+
+    <button type="submit" class="btn btn-primary btn-next"> {% block frombtn %}Next{% endblock %}</button>
+  </form>
+</div>
+{% endblock %}
+
+
+{% block script %} 
+<script>
+const textarea = document.getElementById('description');
+
+textarea.addEventListener('input', function () {
+  this.style.height = 'auto'; 
+  this.style.height = this.scrollHeight + 'px'; // Set the height to match the content's scrollHeight (Description text area)
+});
+</script>
+
+{% endblock %}

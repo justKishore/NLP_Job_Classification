@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block navtitle %} <span>JobHub</span>{% endblock
+%}{% block search %} {% endblock %} {% block body %}
+
+<!-- Job detail container -->
+<div class="container mt-5 mb-5">
+  <div class="card job-details">
+    <div class="card-body">
+      <a
+        href="javascript:history.back()"
+        class="btn btn-light mb-3 back-link"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Go back"
+      >
+        <img
+          src="../static/images/left-arrow.png"
+          alt="Back"
+          class="back-icon"
+        />
+      </a>
+      <div class="card-contents">
+        <h2 class="card-title">{{ job.title if job.title else 'N/A' }}</h2>
+        <p class="card-text">
+          {{ job.description if job.description else 'N/A' }}
+        </p>
+        <p class="card-text">
+          Location: {{ job.location if job.location else 'N/A' }}
+        </p>
+        <p class="card-text">
+          Company: {{ job.company if job.company else 'N/A' }}
+        </p>
+        <p class="card-text">
+          Salary: {{ job.salary if job.salary else 'N/A' }}
+        </p>
+        <p class="card-text">
+          Job Type: {{ job.job_type if job.job_type else 'N/A' }}
+        </p>
+
+        <div class="apply-btn">
+          <button class="btn btn-outline-primary">Save</button>
+          <button class="btn btn-primary">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

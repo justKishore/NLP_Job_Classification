@@ -1,0 +1,33 @@
+{% extends 'employer-step1.html' %}
+
+
+{% block form %}<form class="create-job" action="/post_job" method="POST"> {% endblock %}
+
+{% block formPageNo %}2/2{% endblock %}
+{% block category %}
+<div class="form-group">
+    <label for="category">Category:</label>
+    <select class="form-control" id="category" name="category">
+        <option value="Accounting_Finance" {% if recommended_category == 'Accounting_Finance' %}selected{% endif %}>Accounting Finance</option>
+        <option value="Engineering" {% if recommended_category == 'Engineering' %}selected{% endif %}>Engineering</option>
+        
+        <option value="Healthcare_Nursing" {% if recommended_category == 'Healthcare_Nursing' %}selected{% endif %}>Healthcare Nursing</option>
+        <option value="Sales" {% if recommended_category == 'Sales' %}selected{% endif %}>Sales</option>
+    </select>
+    {% if recommended_category and recommended_category !=-1 %} 
+    <div class="alert alert-primary mt-1" role="alert">
+        NOTE: {{recommended_category}} is selected by default as it was recommended by the model, feel free to modify if the recommendation was wrong.
+    </div>
+    {% endif %}
+    {% if recommended_category==-1 %} 
+    <div class="alert alert-warning mt-1" role="alert">
+        NOTE: Unable to predict the category please select an option. Accounting Finance is selected as default.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block frombtn %}Post{% endblock %}
+
+
+

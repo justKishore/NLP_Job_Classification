@@ -1,0 +1,103 @@
+{% extends "base.html" %} {% block navtitle %} <span>JobHub</span>{% endblock %}
+{% block navlink %}
+<a class="nav-link disabled" href="/employer">Employer Site</a>{% endblock %} {%
+block body %}
+<!-- Inside index.html -->
+<div class="container">
+  {% if length %} {% if route == 'any_classification' %}
+  <p>Showing all job listings. Use filters to find what you are looking for.</p>
+  {% else %}
+  <h1>Found {{ length }} jobs</h1>
+  {% endif %} {% endif %}
+
+  <!-- Job Listings -->
+  <div class="job-listings content">
+    {% if jobs %}
+    <div class="row">
+      {% for job in jobs %}
+      <div class="col-lg-6 mb-4 col-md-12">
+        <!-- {print('jobs')} -->
+        <a href="{{ 'jobs/' + job.id}}" class="card-link">
+          <div class="card job-card">
+            <div class="card-body">
+              <h5 class="card-title job-title" style="color: black">
+                {{ job.title }}
+              </h5>
+              <p class="card-text" style="color: black">
+                Company: {{ job.company }}
+              </p>
+              <p class="card-text" style="color: black">
+                {{ job.description|truncate(100) }}...
+              </p>
+              <p class="card-text">
+                <span class="badge badge-light">{{ job.salary }}</span>
+                <span class="badge badge-light">{{ job.job_type }}</span>
+                <span class="badge badge-light">{{ job.location }}</span>
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+
+    <!-- Display similar jobs -->
+    {% if similar_jobs %}
+    <h4>Similar Jobs Based on Your Search:</h4>
+    <div class="row">
+      {% for job in similar_jobs %}
+      <div class="col-lg-6 mb-4 col-md-12">
+        <!-- {print('jobs')} -->
+        <a href="{{ 'jobs/' + job.id}}" class="card-link">
+          <div class="card job-card">
+            <div class="card-body">
+              <h5 class="card-title job-title" style="color: black">
+                {{ job.title }}
+              </h5>
+              <p class="card-text" style="color: black">
+                Company: {{ job.company }}
+              </p>
+              <p class="card-text" style="color: black">
+                {{ job.description|truncate(100) }}...
+              </p>
+              <p class="card-text">
+                <span class="badge badge-light">{{ job.salary }}</span>
+                <span class="badge badge-light">{{ job.job_type }}</span>
+                <span class="badge badge-light">{{ job.location }}</span>
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %} {% block script %}
+<script>
+  // Function to generate a slug from a string
+  function slugify(str) {
+    return str
+      .toLowerCase()
+      .replace(/ /g, "-")
+      .replace(/[^\w-]+/g, "");
+  }
+
+  // Iterate through job titles and generate slugs
+  document.addEventListener("DOMContentLoaded", function () {
+    const jobTitles = document.querySelectorAll(".job-title");
+    jobTitles.forEach(function (jobTitle) {
+      const titleText = jobTitle.textContent;
+      const slug = slugify(titleText);
+      jobTitle.parentNode.href = "/jobs/" + slug;
+    });
+  });
+</script>
+
+{% endblock %}

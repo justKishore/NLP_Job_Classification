@@ -1,0 +1,5 @@
+__pycache__/
+.ipynb_checkpoints/
+milestone2/
+NLP/.ipynb_checkpoints/
+NLP/generated_model/glove.model.vectors.npy

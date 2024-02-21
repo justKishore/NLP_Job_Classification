@@ -1,0 +1,216 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.job-card,
+.job-details,
+.create-job {
+  background: var(--bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.job-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8),
+    0 24px 46px var(--box-shadow-color);
+  border: 2px solid #f0f8ff;
+}
+
+.content {
+  padding-top: 2%;
+  flex-grow: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.card-contents,
+.create-job {
+  display: flex;
+  flex-direction: column;
+}
+.back-link {
+  padding: 0.4rem;
+  border-radius: 50%;
+}
+
+.back-icon {
+  width: 28px;
+}
+
+.apply-btn,
+.create-job-next-btn {
+  align-self: flex-end;
+}
+
+.create-job-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.create-job h3 {
+  margin: auto;
+}
+.create-job {
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+  padding: 2%;
+}
+
+.create-job .form-group {
+  margin-bottom: 10px;
+}
+
+.create-job .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.btn-next {
+  margin-top: 15px;
+  align-self: flex-end;
+}
+
+/* BELOW CSS ARE TAKEN FORM INTERNET */
+
+/* from https://codepen.io/fcasantos/pen/LJXeKP */
+.wrapper {
+  position: relative;
+  max-width: 1298px;
+  height: auto;
+  margin: 2em auto 0 auto;
+}
+
+/* https://www.flaticon.com/authors/vectors-market */
+/* https://www.flaticon.com/authors/icomoon */
+.box {
+  min-height: auto;
+  margin: 0 auto;
+  padding: 1em 1em;
+  text-align: center;
+  background: url("https://www.dropbox.com/s/xq0841cp3icnuqd/flame.png?raw=1")
+      no-repeat top 10em center/128px 128px,
+    transparent
+      url("https://www.dropbox.com/s/w7qqrcvhlx3pwnf/desktop-pc.png?raw=1")
+      no-repeat top 13em center/128px 128px;
+}
+
+.box2 {
+  background: url("images/404-icon.png") no-repeat top 13em center/128px 128px,
+    transparent;
+}
+
+.box h1,
+.box p:not(:last-of-type) {
+  text-shadow: 0 0 6px #f0f8ff;
+}
+
+.box h1 {
+  margin: 0 0 1rem 0;
+  font-size: 8em;
+}
+
+.box p {
+  margin-bottom: 1em;
+  font-size: 2.5em;
+}
+
+.box p:first-of-type {
+  margin-top: 5em;
+}
+
+.box a {
+  color: black;
+  text-decoration: none;
+  padding: 1em;
+  margin: 2em 0;
+  background-color: #f0f8ff;
+}
+
+/* Error page button style from https://getcssscan.com/css-buttons-examples - Button number 55 */
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+#description {
+  overflow-y: auto;
+  max-height: 250px;
+}
+
+/* new  */
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #f0f8ff #6c757d;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #6c757d7d;
+  border-radius: 10px;
+  border: 3px solid #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Color on hover */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.8); /* Color when dragging */
+}
